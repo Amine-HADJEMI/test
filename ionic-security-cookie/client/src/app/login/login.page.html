@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Connexion</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form #form="ngForm" (ngSubmit)="login(form.value)" novalidate>
+    <ion-list>
+      <ion-item>
+        <ion-label position="stacked">Pseudonyme</ion-label>
+        <ion-input #username="ngModel" [class.invalid]="username.errors && username.dirty" [required]="true"
+                   name="username" ngModel
+                   type="text"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Mot de passe</ion-label>
+        <ion-input #password="ngModel" [class.invalid]="password.errors && password.dirty" [required]="true"
+                   name="password" ngModel
+                   type="password"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Se souvenir de moi</ion-label>
+        <ion-checkbox [ngModel]="rememberMe" name="rememberMe"></ion-checkbox>
+      </ion-item>
+
+      <div class="ion-padding">
+        <ion-button [disabled]="!form.valid" color="primary" expand="block" type="submit">Connexion</ion-button>
+      </div>
+
+      <div class="ion-padding">
+        <ion-button (click)="signup()" color="secondary" expand="block" type="button">Inscription</ion-button>
+      </div>
+
+      <div class="ion-padding">
+        <ion-button (click)="reset()" color="secondary" expand="block" type="button">Mot de passe oublié</ion-button>
+      </div>
+    </ion-list>
+  </form>
+</ion-content>
